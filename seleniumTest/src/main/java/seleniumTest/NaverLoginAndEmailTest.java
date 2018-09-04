@@ -8,6 +8,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class NaverLoginAndEmailTest {
+    public static String naverId = "myId";
+    public static String naverPw = "myPw";
+    public static String loginUrl = "https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com";
+    
     public static void main(String[] args) {
 	NaverLoginAndEmailTest mine = new NaverLoginAndEmailTest();
 	mine.login();
@@ -32,13 +36,13 @@ public class NaverLoginAndEmailTest {
     }
 
     private void login() {
-        driver.get("https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com");
+        driver.get(loginUrl);
         WebElement id = driver.findElement(By.id("id"));
         WebElement pass = driver.findElement(By.id("pw"));
         WebElement button = driver.findElement(By.className("btn_global"));         
 
-        id.sendKeys("myId");
-        pass.sendKeys("myPassword");
+        id.sendKeys(naverId);
+        pass.sendKeys(naverPw);
         button.submit();
     }
     
